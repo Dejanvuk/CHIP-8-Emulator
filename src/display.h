@@ -23,10 +23,12 @@
 
 typedef struct display
 {
-    SDL_Window* window;
+    SDL_Window* window; //The window we'll be rendering to
     SDL_Renderer* renderer;
     SDL_Texture* texture;
 } DISPLAY;
 
+void initSDL(DISPLAY*);
+void cleanUp(SDL_Window*);
 
 #endif
