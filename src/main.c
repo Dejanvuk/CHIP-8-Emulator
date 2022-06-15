@@ -7,29 +7,14 @@
 
 int main(int argc, char* argv[]) {
 	char* currentRom = "roms/TANK";
-	uint16_t romLength = 0;
 	FILE *romFilePointer = NULL;
+	CHIP8* pChip8 = initializeChip8();
 
-	// Load the ROM and initialize the Chip8 interpreter.
-    romFilePointer = fopen(currentRom, "r");
-
-	if (!romFilePointer) {
-		printf( "ROM could not be opened: %s\n", currentRom);
-        exit(0);
-	}
-
-	fseek(romFilePointer, 0, SEEK_END);
-	romLength = ftell(romFilePointer);
+	// Initialize the Chip8 interpreter.
 
 
-	if (romLength == 0) {
-		printf( "ROM file is empty: %s\n", currentRom);
-        exit(0);
-	}
-
-	fseek(romFilePointer, 0, SEEK_SET);
-
-	printf("size: %d\n", romLength);
+	// Load the ROM
+	readRom(currentRom, pChip8, &romFilePointer);
 
 	// Initialize SDL.
 
