@@ -29,6 +29,12 @@ void readRom(char* location, CHIP8* pChip8, FILE** pRomFilePointer) {
 
     // Read the file content into Chip8's memory
     int read = fread(pChip8->memory + DATA_SPACE_START, sizeof(uint8_t), romLength, romFilePointer);
+
+    if(!read) {
+        printf( "Unable to read from ROM file: %s\n", location);
+        exit(0);
+    }
+
     fclose(romFilePointer);
 
 
@@ -37,6 +43,7 @@ void readRom(char* location, CHIP8* pChip8, FILE** pRomFilePointer) {
 
 CHIP8* initializeChip8() {
     CHIP8* pChip8 = (CHIP8*) malloc(sizeof(CHIP8));
+    memset(pChip8, 0, sizeof(CHIP8));
     pChip8->cpu.PC = DATA_SPACE_START;
     pChip8->cpu.SP = 0;
 

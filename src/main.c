@@ -8,15 +8,14 @@
 int main(int argc, char* argv[]) {
 	char* currentRom = "roms/TANK";
 	FILE *romFilePointer = NULL;
-	CHIP8* pChip8 = initializeChip8();
+
+	// Initialize SDL.
 
 	// Initialize the Chip8 interpreter.
-
+	CHIP8* pChip8 = initializeChip8();
 
 	// Load the ROM
 	readRom(currentRom, pChip8, &romFilePointer);
-
-	// Initialize SDL.
 
 	/* Main loop:
     While 'ESC' is not pressed:
