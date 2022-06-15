@@ -7,7 +7,7 @@ make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --quest
 # There is NO WARRANTY, to the extent permitted by law.
  
 
-# Make data base, printed on Wed Jun 15 22:25:55 2022
+# Make data base, printed on Wed Jun 15 22:51:58 2022
 
 # Variables
 
@@ -22,7 +22,7 @@ USERPROFILE = C:\Users\a-dvukovic
 # environment
 LOCALAPPDATA = C:\Users\a-dvukovic\AppData\Local
 # environment
-VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-b2c58e19-a06d-4704-8665-83090820ad4b-sock
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-15404202-d56f-4241-8ce1-d9845d1544ac-sock
 # environment
 VSCODE_CWD = C:\Users\a-dvukovic\AppData\Local\Programs\Microsoft VS Code
 # environment
@@ -40,7 +40,7 @@ USERDNSDOMAIN = europe.corp.microsoft.com
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_28592_XRXIAMYZIVDHMOEO
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_18196_TXEGMPVOCPAMZEQU
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
@@ -96,7 +96,7 @@ MAKEFILE_LIST := Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 28592
+VSCODE_PID = 18196
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # automatic
@@ -268,18 +268,19 @@ src/fonts.c:
 #  Last modified 2022-06-15 20:50:32.32974
 #  File has been updated.
 #  Successfully updated.
+ 
 
 # Not a target:
 src/interpreter.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-15 22:25:42.9420847
+#  Last modified 2022-06-15 22:51:36.2416471
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 src/chip8.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-15 22:17:15.9301801
+#  Last modified 2022-06-15 22:26:51.2217829
 #  File has been updated.
 #  Successfully updated.
 
@@ -351,6 +352,6 @@ all: src/chip8.c src/display.c src/fonts.c src/interpreter.c src/main.c
 # strcache performance: lookups = 42 / hit rate = 23%
 # hash-table stats:
 # Load=32/8192=0%, Rehash=0, Collisions=0/42=0%
-# Finished Make data base on Wed Jun 15 22:25:55 2022
+# Finished Make data base on Wed Jun 15 22:51:58 2022
 
  

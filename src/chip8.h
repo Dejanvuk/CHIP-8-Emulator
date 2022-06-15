@@ -17,7 +17,7 @@ typedef struct cpu {
     uint8_t V[REGISTER_SIZE]; // V[0xF] used as flag.
     uint16_t I; // address register.
     uint16_t PC; // program counter, holds the address of the instruction to be executed.
-    uint8_t SP; // stack pointer, points to the topmost level of the stack.
+    uint8_t SP; // stack pointer, points to the topmost level of the stack
 } CPU;
 
 typedef struct chip8
