@@ -29,7 +29,8 @@ typedef struct display
     SDL_Texture* texture;
 } DISPLAY;
 
-void initSDL(DISPLAY*);
-void cleanUp(SDL_Window*);
+void initializeDisplay(DISPLAY**);
+void cleanUpDisplay(DISPLAY*);
+void draw(SDL_Renderer*, SDL_Texture*);
 
 #endif

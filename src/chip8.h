@@ -24,7 +24,7 @@ typedef struct chip8
 {
     CPU cpu;
     char memory[MEMORY_MAP_SIZE]; // RAM
-    uint32_t video_buffer[CHIP8_DISPLAY_WIDTH * CHIP8_DISPLAY_HEIGHT]; // holds RGBA values of the pixels
+    uint32_t video_buffer[CHIP8_DISPLAY_WIDTH * CHIP8_DISPLAY_HEIGHT]; // holds ARGB values of the pixels
     uint16_t stack[STACK_SIZE];
 } CHIP8;
 

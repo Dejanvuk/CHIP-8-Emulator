@@ -1,7 +1,8 @@
 {
     "files.associations": {
         "sdl.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "display.h": "c"
     },
     "makefile.launchConfigurations": [
         {
