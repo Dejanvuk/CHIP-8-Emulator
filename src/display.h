@@ -2,6 +2,7 @@
 #define DISPLAY_H
 
 #include <SDL2/SDL.h>
+#include <stdio.h>
 
 /* 
 64x32-pixel monochrome display 
