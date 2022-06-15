@@ -1,0 +1,359 @@
+make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 4.3
+ 
+# Built for x86_64-pc-msys
+# Copyright (C) 1988-2020 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+ 
+
+# Make data base, printed on Wed Jun 15 11:33:14 2022
+ 
+
+# Variables
+
+# environment
+FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
+# environment
+SYSTEMDRIVE = C:
+# environment
+JAVA_HOME = C:\Program Files\Zulu\zulu-11\
+# environment
+LC_ALL = C
+# environment
+USERPROFILE = C:\Users\a-dvukovic
+# environment
+LOCALAPPDATA = C:\Users\a-dvukovic\AppData\Local
+# environment
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-93f69ccf-866a-4ea5-a06d-1e233bbb3e6f-sock
+# environment
+VSCODE_CWD = C:\Users\a-dvukovic\AppData\Local\Programs\Microsoft VS Code
+# environment
+CHOCOLATEYINSTALL = C:\ProgramData\chocolatey
+# environment
+SYSTEMROOT = C:\WINDOWS
+# environment
+PROCESSOR_LEVEL = 6
+# environment
+PSMODULEPATH = C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules;C:\Program Files (x86)\Microsoft Azure Information Protection\Powershell
+# default
+MAKE_COMMAND := make
+# environment
+USERDNSDOMAIN = europe.corp.microsoft.com
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# environment
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_23840_VYQPJRDTZQWQRJIN
+# environment
+FPS_BROWSER_USER_PROFILE_STRING = Default
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# default
+.VARIABLES := 
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+VSCODE_LOG_STACK = false
+# automatic
+%F = $(notdir $%)
+# environment
+VSCODE_CODE_CACHE_PATH = C:\Users\a-dvukovic\AppData\Roaming\Code\CachedData\4af164ea3a06f701fe3e89a2bcbb421d2026b68f
+# environment
+LANG = C
+# default
+.LOADED := 
+# environment
+TMP = /c/Users/A-DVUK~1/AppData/Local/Temp
+# default
+.INCLUDE_DIRS = /usr/include /usr/include
+# makefile
+MAKEFLAGS = pqrR
+# environment
+ 
+ONEDRIVE = C:\Users\a-dvukovic\OneDrive
+# makefile (from 'Makefile', line 5)
+ 
+C_STANDARD = c11
+# makefile
+CURDIR := /c/Users/a-dvukovic/Desktop/Projects/chip-8
+# environment
+VSCODE_PIPE_LOGGING = true
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+PROGRAMFILES = C:\Program Files
+# environment
+MFLAGS = -pqrR
+# default
+.SHELLFLAGS := -c
+# environment
+!C: = c:\Users\a-dvukovic\Desktop\Projects\chip-8
+# environment
+COMMONPROGRAMW6432 = C:\Program Files\Common Files
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST := Makefile
+# automatic
+@F = $(notdir $@)
+# environment
+VSCODE_VERBOSE_LOGGING = true
+# environment
+VSCODE_PID = 23840
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# automatic
+*F = $(notdir $*)
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+# default
+MAKE_HOST := x86_64-pc-msys
+# makefile (from 'Makefile', line 26)
+OBJS = $(wildcard src/*.c)
+# environment
+PROGRAMDATA = C:\ProgramData
+# default
+SHELL := /bin/sh
+# environment
+HOMEPATH = \Users\a-dvukovic
+# default
+MAKECMDGOALS := all
+# environment
+DRIVERDATA = C:\Windows\System32\Drivers\DriverData
+# environment
+COMSPEC = C:\WINDOWS\system32\cmd.exe
+# environment
+WINDIR = C:\WINDOWS
+# environment
+MAKELEVEL := 0
+# default
+MAKE = $(MAKE_COMMAND)
+# environment
+PATH = /c/Program Files (x86)/VMware/VMware Player/bin:/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/c/Program Files/Python39/Scripts:/c/Program Files/Python39:/c/Program Files/Zulu/zulu-11/bin:/c/Program Files/Zulu/zulu-11-jre/bin:/c/Program Files (x86)/Microsoft SDKs/Azure/CLI2/wbin:/c/windows/system32:/c/windows:/c/windows/System32/Wbem:/c/windows/System32/WindowsPowerShell/v1.0:/c/windows/System32/OpenSSH:/c/Program Files/Git/cmd:/c/kube:/c/Program Files/Kubernetes/Minikube:/c/minikube:/c/WINDOWS/system32:/c/WINDOWS:/c/WINDOWS/System32/Wbem:/c/WINDOWS/System32/WindowsPowerShell/v1.0:/c/WINDOWS/System32/OpenSSH:/c/Maven/bin:/c/Program Files/dotnet:/c/Program Files/Microsoft SQL Server/130/Tools/Binn:/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn:/c/Program Files/PuTTY:/c/Program Files/Docker/Docker/resources/bin:/c/ProgramData/DockerDesktop/version-bin:/c/Program Files/nodejs:/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit:/c/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit:/c/Program Files/Microsoft SQL Server/150/Tools/Binn:/c/Gradle/gradle-7.4.2/bin:/c/Program Files/Microsoft/Azure Functions Core Tools:/c/ProgramData/chocolatey/bin:/mingw64/bin:/usr/bin:/c/Program Files (x86)/dotnet:/c/Users/a-dvukovic/AppData/Local/Programs/Python/Python310/Scripts:/c/Users/a-dvukovic/AppData/Local/Programs/Python/Python310:/c/Users/a-dvukovic/AppData/Local/Microsoft/WindowsApps:/c/Users/a-dvukovic/AppData/Local/Programs/Microsoft VS Code/bin:/c/Program Files/JetBrains/IntelliJ IDEA 2021.2.3/bin:/c/Users/a-dvukovic/.dotnet/tools:/c/Users/a-dvukovic/AppData/Roaming/npm
+# environment
+ZES_ENABLE_SYSMAN = 1
+# environment
+COMPUTERNAME = DESKTOP-5LBUQAI
+# default
+MAKEFILES := 
+# automatic
+^F = $(notdir $^)
+# environment
+PROMPT = $P$G
+# environment
+CHOCOLATEYLASTPATHUPDATE = 132983240026920110
+# environment
+INTELLIJ IDEA = C:\Program Files\JetBrains\IntelliJ IDEA 2021.2.3\bin;
+# environment
+LOGONSERVER = \\DESKTOP-5LBUQAI
+# environment
+VSCODE_LOG_NATIVE = false
+# environment
+USERNAME = a-dvukovic
+# environment
+COMMONPROGRAMFILES = C:\Program Files\Common Files
+# automatic
+?F = $(notdir $?)
+# environment
+PROGRAMW6432 = C:\Program Files
+# makefile (from 'Makefile', line 19)
+LIB_PATHS = -Llib/SDL2
+# environment
+PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW
+# automatic
++F = $(notdir $+)
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+# environment
+MAVEN_HOME = C:\Maven
+# environment
+USERDOMAIN = EUROPE
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+VS140COMNTOOLS = C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\Tools\
+# environment
+OS = Windows_NT
+# makefile
+.DEFAULT_GOAL := all
+# default
+MAKE_VERSION := 4.3
+# environment
+PROGRAMFILES(X86) = C:\Program Files (x86)
+# makefile (from 'Makefile', line 22)
+EXE_NAME = chip8.exe
+# environment
+UATDATA = C:\windows\CCM\UATData\D9F8C395-CAB8-491d-B8AC-179A1FE1BE77
+# environment
+USERDOMAIN_ROAMINGPROFILE = EUROPE
+# environment
+NUMBER_OF_PROCESSORS = 8
+# environment
+PUBLIC = C:\Users\Public
+# makefile (from 'Makefile', line 10)
+COMPILER_FLAGS = -Wall 
+# environment
+MOZ_PLUGIN_PATH = C:\Program Files (x86)\Foxit Software\Foxit PDF Reader\plugins\
+# environment
+APPDATA = C:\Users\a-dvukovic\AppData\Roaming
+# environment
+HOMEDRIVE = C:
+# environment
+PROCESSOR_ARCHITECTURE = AMD64
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /home/a-dvukovic
+# environment
+COMMONPROGRAMFILES(X86) = C:\Program Files (x86)\Common Files
+ 
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+TEMP = /c/Users/A-DVUK~1/AppData/Local/Temp
+# environment
+VSCODE_IPC_HOOK = \\.\pipe\cc83bb948b35eee62ce739f2cda8a764-1.68.0-main-sock
+# environment
+TERM = xterm-256color
+# default
+.RECIPEPREFIX := 
+# automatic
+<F = $(notdir $<)
+# default
+SUFFIXES := 
+# environment
+ALLUSERSPROFILE = C:\ProgramData
+# environment
+SESSIONNAME = Console
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
+# environment
+PROCESSOR_REVISION = 8e0c
+# makefile (from 'Makefile', line 4)
+CC = gcc 
+# makefile (from 'Makefile', line 13)
+LINKER_FLAGS = -lmingw32 -lSDL2main -lSDL2
+# makefile (from 'Makefile', line 16)
+INCLUDE_PATHS = -Iinclude
+# environment
+PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 142 Stepping 12, GenuineIntel
+# variable set hash-table stats:
+# Load=114/1024=11%, Rehash=0, Collisions=12/153=8%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# src (device 3657868720, inode 68961369294130232): 9 files, no impossibilities.
+# . (device 3657868720, inode 18014398509774970): 14 files, no impossibilities.
+
+# 23 files, no impossibilities in 2 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-14 09:31:34.2002168
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/fonts.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-13 22:23:43.76543
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/chip8.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-13 22:23:45.2028569
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/main.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-14 09:39:52.9149025
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/display.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-13 22:23:42.1126193
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+all: src/chip8.c src/display.c src/fonts.c src/main.c
+#  Command line target.
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := all
+# automatic
+# * := 
+# automatic
+# < := src/chip8.c
+# automatic
+# + := src/chip8.c src/display.c src/fonts.c src/main.c
+# automatic
+# % := 
+# automatic
+# ^ := src/chip8.c src/display.c src/fonts.c src/main.c
+# automatic
+# ? := src/chip8.c src/display.c src/fonts.c src/main.c
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=11/19=58%
+#  recipe to execute (from 'Makefile', line 29):
+	$(CC) -std=$(C_STANDARD) $(OBJS) $(INCLUDE_PATHS) $(LIB_PATHS) $(COMPILER_FLAGS) ${LINKER_FLAGS} -o ${EXE_NAME}
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# files hash-table stats:
+# Load=8/1024=1%, Rehash=0, Collisions=0/24=0%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 29 / storage = 243 B / avg = 8 B
+# current buf: size = 8162 B / used = 243 B / count = 29 / avg = 8 B
+ 
+
+# strcache performance: lookups = 39 / hit rate = 25%
+# hash-table stats:
+# Load=29/8192=0%, Rehash=0, Collisions=0/39=0%
+# Finished Make data base on Wed Jun 15 11:33:14 2022
+
+ 

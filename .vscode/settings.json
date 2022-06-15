@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "sdl.h": "c",
+        "stdio.h": "c"
+    },
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "c:\\Users\\a-dvukovic\\Desktop\\Projects\\chip-8",
+            "binaryPath": "c:\\Users\\a-dvukovic\\Desktop\\Projects\\chip-8\\chip8.exe",
+            "binaryArgs": []
+        }
+    ]
+}

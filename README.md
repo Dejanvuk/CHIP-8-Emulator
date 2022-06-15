@@ -5,8 +5,7 @@
 ___
 
 ## Installation
-
-___
+This program has been compiled on windows, so SDL2.dll has been copied on the project directory.
 ## Running the program
 
 ___
@@ -14,6 +13,6 @@ ___
 
 ___
 ## TO-DO:
-- [] Rewrite it using C++
-- [] Rewrite a copy using SDL with OpenGL for graphic display, GLFW for keyboard input and Irrklang for audio sound
-- [] Rewrite a copy using DirectX 11 for graphic display, keyboard input and audio sound.
+- [ ] Rewrite it using C++
+- [ ] Rewrite a copy replacing SDL with OpenGL for graphic display, GLFW for keyboard input and Irrklang for audio sound
+- [ ] Rewrite a copy replacing SDL with DirectX 11 for graphic display, keyboard input and audio sound
