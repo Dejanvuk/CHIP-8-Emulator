@@ -9,9 +9,8 @@
 int main(int argc, char* argv[]) {
 	char* currentRom = "roms/TANK";
 	FILE *romFilePointer = NULL;
-	DISPLAY* pDisplay = NULL;
 	SDL_bool shouldRun = SDL_TRUE;
-	SDL_bool shouldDraw = SDL_FALSE;
+	DISPLAY* pDisplay = NULL;
 
 	CHIP8* pChip8 = initializeChip8();
 
@@ -34,16 +33,10 @@ int main(int argc, char* argv[]) {
         return(-1);
 	}
 
-	/* Main loop:
-    While 'ESC' is not pressed:
-        3a: Get next instruction
-        3b: Decode the instruction
-        3c: Execute the instruction
-        3d: Draw
-    */
-
     while(shouldRun) {
 		SDL_Event event;
+
+		// fetch, decode and execute the next instruction
 
 		// Process the user events
     	while (SDL_PollEvent(&event)) {

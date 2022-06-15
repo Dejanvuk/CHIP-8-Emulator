@@ -50,3 +50,4 @@ CHIP8* initializeChip8() {
 
     return pChip8;
 }
+

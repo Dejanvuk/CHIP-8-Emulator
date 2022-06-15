@@ -1,9 +1,9 @@
 #ifndef CHIP8_H
 #define CHIP8_H
 
+#include <SDL2/SDL.h>
+#include <stdio.h>
 #include <stdint.h>
-
-#include "display.h"
 
 #define REGISTER_SIZE 16 // 16 general purpose registers, VF is used as flag.
 #define MEMORY_MAP_SIZE 4096 // 4KB (4,096 bytes) of RAM.
@@ -23,20 +23,12 @@ typedef struct cpu {
 typedef struct chip8
 {
     CPU cpu;
-    char memory[MEMORY_MAP_SIZE]; // RAM
-    uint32_t video_buffer[CHIP8_DISPLAY_WIDTH * CHIP8_DISPLAY_HEIGHT]; // holds ARGB values of the pixels
+    uint8_t memory[MEMORY_MAP_SIZE]; // RAM
     uint16_t stack[STACK_SIZE];
 } CHIP8;
 
 void readRom(char*, CHIP8*, FILE**);
 
 CHIP8* initializeChip8(void);
-
-/**
- * @brief Handles the next instruction.
- * 
- */
-void nextInstruction(CHIP8*);
-
 
 #endif

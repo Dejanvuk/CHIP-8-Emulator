@@ -22,15 +22,20 @@
 #define REAL_DISPLAY_WIDTH CHIP8_DISPLAY_WIDTH * VIDEO_SCALE_WIDTH
 #define REAL_DISPLAY_HEIGHT CHIP8_DISPLAY_HEIGHT * VIDEO_SCALE_HEIGHT
 
+#define CLEAR_COLOR 0x00000000
+
 typedef struct display
 {
     SDL_Window* window; //The window we'll be rendering to
     SDL_Renderer* renderer;
     SDL_Texture* texture;
+    uint32_t video_buffer[CHIP8_DISPLAY_WIDTH * CHIP8_DISPLAY_HEIGHT]; // holds ARGB values of the pixels
+    SDL_bool shouldDraw;
 } DISPLAY;
 
 void initializeDisplay(DISPLAY**);
 void cleanUpDisplay(DISPLAY*);
 void draw(SDL_Renderer*, SDL_Texture*);
+void clearDisplay(DISPLAY*);
 
 #endif

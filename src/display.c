@@ -34,10 +34,16 @@ void initializeDisplay(DISPLAY** ppDisplay) {
 			SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "The texture could not be created! SDL_Error: %s\n", SDL_GetError());
 			return;
 		}
+
+		pDisplay->shouldDraw = SDL_FALSE;
 	}
 
-
 	*ppDisplay = pDisplay; 
+}
+
+void clearDisplay(DISPLAY* pDisplay) {
+	memset(pDisplay->video_buffer, 0, sizeof(uint32_t) * CHIP8_DISPLAY_WIDTH * CHIP8_DISPLAY_HEIGHT);
+	pDisplay->shouldDraw = SDL_TRUE;
 }
 
 void cleanUpDisplay(DISPLAY* display) {
