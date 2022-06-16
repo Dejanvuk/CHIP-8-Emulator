@@ -13,7 +13,7 @@ int readRom(char* location, CHIP8* pChip8) {
 
 	if (romFilePointer == NULL ) {
 		printf( "ROM could not be opened: %s\n", location);
-        return;
+        return 0;
 	}
 
 	fseek(romFilePointer, 0, SEEK_END);
@@ -27,12 +27,8 @@ int readRom(char* location, CHIP8* pChip8) {
 
 	fseek(romFilePointer, 0, SEEK_SET);
 
-    printf("%d", romLength);
-
     // Read the file content into Chip8's memory
     int read = fread(pChip8->memory + DATA_SPACE_START, sizeof(uint8_t), romLength, romFilePointer);
-
-    printf(" %d ", read);
 
     if(read != romLength) {
         printf( "Unable to read data from ROM file: %s\n", location);

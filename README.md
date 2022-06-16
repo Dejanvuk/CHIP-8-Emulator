@@ -5,7 +5,7 @@
 ___
 
 ## Installation
-This program has been compiled on windows, so SDL2.dll has been copied on the project directory.
+This program has been compiled on windows x64, SDL2.dll has been copied on the project directory or in the system's directory
 ## Running the program
 
 ___

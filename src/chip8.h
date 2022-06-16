@@ -5,6 +5,8 @@
 #include <stdio.h>
 #include <stdint.h>
 
+#include "keyboard.h"
+
 #define REGISTER_SIZE 16 // 16 general purpose registers, VF is used as flag.
 #define MEMORY_MAP_SIZE 4096 // 4KB (4,096 bytes) of RAM.
 #define STACK_SIZE 16
@@ -25,6 +27,7 @@ typedef struct chip8
     CPU cpu;
     uint8_t memory[MEMORY_MAP_SIZE]; // RAM
     uint16_t stack[STACK_SIZE];
+    uint8_t keys[KEYS_COUNT];
 } CHIP8;
 
 int readRom(char*, CHIP8*);
