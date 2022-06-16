@@ -174,7 +174,7 @@ void processNextInstruction(CHIP8* pChip8, DISPLAY* pDisplay) {
                 case 0x000A:
                     for(int i = 0; i < KEYS_COUNT; i++) {
                         if(pChip8->keys[i] == 1) { 
-                            pChip8->cpu.V[(opcode & 0x0F00) >> 8] == i;
+                            pChip8->cpu.V[(opcode & 0x0F00) >> 8] = i;
                         }
                         else { // no key pressed yet
                             pChip8->cpu.PC -= 2;
@@ -201,17 +201,27 @@ void processNextInstruction(CHIP8* pChip8, DISPLAY* pDisplay) {
                 and the ones digit at location I+2.);
                 */
                 case 0x0033:
+                {
+                    uint8_t value = pChip8->cpu.V[(opcode & 0x0F00) >> 8];
+                    pChip8->memory[pChip8->cpu.I] = value % 100;
+                    pChip8->memory[pChip8->cpu.I + 1] = (value / 10) % 10;
+                    pChip8->memory[pChip8->cpu.I + 2] = (value % 100) % 10;
                     break;
-                /* FX33
-                Stores the binary-coded decimal representation of VX, with the most significant of three digits at the address in I, the middle digit at I plus 1, 
-                and the least significant digit at I plus 2. (In other words, take the decimal representation of VX, place the hundreds digit in memory at location in I,
-                the tens digit at location I+1, and the ones digit at location I+2.);
+                }
+                /* FX55 
+                Stores from V0 to VX (including VX) in memory, starting at address I. The offset from I is increased by 1 for each value written, but I itself is left unmodified
                 */
-                case 0x0055:
+                case 0x0055: 
+                    for(int i = 0; i <= (opcode * 0x0F00) >> 8; i++) {
+                        pChip8->memory[pChip8->cpu.I + i] = pChip8->cpu.V[i];
+                    }
                     break;
                 /* FX65 Fills from V0 to VX (including VX) with values from memory, starting at address I. 
                 The offset from I is increased by 1 for each value read, but I itself is left unmodified */
                 case 0x0065:
+                    for(int i = 0; i <= (opcode * 0x0F00) >> 8; i++) {
+                        pChip8->cpu.V[i] = pChip8->memory[pChip8->cpu.I + i];
+                    }
                     break;
             }
             break;
