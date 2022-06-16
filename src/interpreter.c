@@ -155,28 +155,41 @@ void processNextInstruction(CHIP8* pChip8, DISPLAY* pDisplay) {
             switch (opcode & 0x00FF) {
                 // EX9E Skips the next instruction if the key stored in VX is pressed. (Usually the next instruction is a jump to skip a code block);
                 case 0x009E:
+                    if(pChip8->keys[(opcode & 0x0F00) >> 8] == 1) 
+                        pChip8->cpu.PC += 2;
                     break;
                 // EXA1 Skips the next instruction if the key stored in VX is not pressed. (Usually the next instruction is a jump to skip a code block);
                 case 0x00A1:
+                    if(pChip8->keys[(opcode & 0x0F00) >> 8] == 0) 
+                        pChip8->cpu.PC += 2;
                     break;
             }
             break;
         case 0xF000:
             switch (opcode & 0x00FF) {
-                // Sets VX to the value of the delay timer.
+                // FX07 Sets VX to the value of the delay timer.
                 case 0x0007:
                     break;
-                // A key press is awaited, and then stored in VX. (Blocking Operation. All instruction halted until next key event);
+                // FX0A A key press is awaited, and then stored in VX. (Blocking Operation. All instruction halted until next key event);
                 case 0x000A:
+                    for(int i = 0; i < KEYS_COUNT; i++) {
+                        if(pChip8->keys[i] == 1) { 
+                            pChip8->cpu.V[(opcode & 0x0F00) >> 8] == i;
+                        }
+                        else { // no key pressed yet
+                            pChip8->cpu.PC -= 2;
+                        }
+                    }
                     break;
-                // Sets the delay timer to VX.
+                // FX15 Sets the delay timer to VX.
                 case 0x0015:
                     break;
-                // Sets the sound timer to VX.
+                // FX18 Sets the sound timer to VX.
                 case 0x0018:
                     break;
                 // FX1E Adds VX to I. VF is not affected.
                 case 0x001E:
+                    pChip8->cpu.I = pChip8->cpu.V[(opcode & 0x0F00) >> 8];
                     break;
                 // FX29 Sets I to the location of the sprite for the character in VX. Characters 0-F (in hexadecimal) are represented by a 4x5 font.
                 case 0x0029:
