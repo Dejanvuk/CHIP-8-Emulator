@@ -7,11 +7,11 @@
  * @param pRomFilePointer Pointer to a FILE structure pointer 
  * @return size_t the number of bytes in a file aka its length
  */
-void readRom(char* location, CHIP8* pChip8, FILE** pRomFilePointer) {
+int readRom(char* location, CHIP8* pChip8) {
     size_t romLength = 0;
-    FILE *romFilePointer = fopen(location, "r");
+    FILE *romFilePointer = fopen(location, "rb");
 
-	if (!romFilePointer) {
+	if (romFilePointer == NULL ) {
 		printf( "ROM could not be opened: %s\n", location);
         return;
 	}
@@ -22,23 +22,26 @@ void readRom(char* location, CHIP8* pChip8, FILE** pRomFilePointer) {
 
 	if (romLength == 0) {
 		printf( "ROM file is empty: %s\n", location);
-        return;
+        return 0;
 	}
 
 	fseek(romFilePointer, 0, SEEK_SET);
 
+    printf("%d", romLength);
+
     // Read the file content into Chip8's memory
     int read = fread(pChip8->memory + DATA_SPACE_START, sizeof(uint8_t), romLength, romFilePointer);
 
-    if(!read) {
+    printf(" %d ", read);
+
+    if(read != romLength) {
         printf( "Unable to read data from ROM file: %s\n", location);
-        return;
+        return 0;
     }
 
     fclose(romFilePointer);
 
-
-    *pRomFilePointer = romFilePointer;
+    return 1;
 }
 
 CHIP8* initializeChip8() {

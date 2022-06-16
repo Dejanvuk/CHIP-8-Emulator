@@ -7,10 +7,12 @@ make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --quest
 # There is NO WARRANTY, to the extent permitted by law.
  
 
-# Make data base, printed on Wed Jun 15 22:51:58 2022
+# Make data base, printed on Thu Jun 16 09:16:53 2022
 
 # Variables
 
+# environment
+FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
 # environment
 SYSTEMDRIVE = C:
 # environment
@@ -22,13 +24,14 @@ USERPROFILE = C:\Users\a-dvukovic
 # environment
 LOCALAPPDATA = C:\Users\a-dvukovic\AppData\Local
 # environment
-VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-15404202-d56f-4241-8ce1-d9845d1544ac-sock
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-703220f9-c86d-41f3-9acd-7ecf625a24a1-sock
 # environment
 VSCODE_CWD = C:\Users\a-dvukovic\AppData\Local\Programs\Microsoft VS Code
 # environment
 CHOCOLATEYINSTALL = C:\ProgramData\chocolatey
 # environment
 SYSTEMROOT = C:\WINDOWS
+ 
 # environment
 PROCESSOR_LEVEL = 6
 # environment
@@ -40,7 +43,9 @@ USERDNSDOMAIN = europe.corp.microsoft.com
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_18196_TXEGMPVOCPAMZEQU
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_28916_KWSRDAGEJXSGEWPF
+# environment
+FPS_BROWSER_USER_PROFILE_STRING = Default
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
@@ -96,7 +101,7 @@ MAKEFILE_LIST := Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 18196
+VSCODE_PID = 28916
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # automatic
@@ -236,7 +241,7 @@ INCLUDE_PATHS = -Iinclude
 # environment
 PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 142 Stepping 12, GenuineIntel
 # variable set hash-table stats:
-# Load=112/1024=11%, Rehash=0, Collisions=11/151=7%
+# Load=114/1024=11%, Rehash=0, Collisions=12/153=8%
 
 # Pattern-specific Variable Values
 
@@ -268,12 +273,11 @@ src/fonts.c:
 #  Last modified 2022-06-15 20:50:32.32974
 #  File has been updated.
 #  Successfully updated.
- 
 
 # Not a target:
 src/interpreter.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-15 22:51:36.2416471
+#  Last modified 2022-06-16 00:32:13.0848221
 #  File has been updated.
 #  Successfully updated.
 
@@ -287,7 +291,7 @@ src/chip8.c:
 # Not a target:
 src/main.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-15 22:12:02.7028296
+#  Last modified 2022-06-16 00:10:36.0060354
 #  File has been updated.
 #  Successfully updated.
 
@@ -330,6 +334,7 @@ all: src/chip8.c src/display.c src/fonts.c src/interpreter.c src/main.c
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=11/19=58%
 #  recipe to execute (from 'Makefile', line 29):
+ 
 	$(CC) -std=$(C_STANDARD) $(OBJS) $(INCLUDE_PATHS) $(LIB_PATHS) $(COMPILER_FLAGS) ${LINKER_FLAGS} -o ${EXE_NAME}
 
 # Not a target:
@@ -352,6 +357,6 @@ all: src/chip8.c src/display.c src/fonts.c src/interpreter.c src/main.c
 # strcache performance: lookups = 42 / hit rate = 23%
 # hash-table stats:
 # Load=32/8192=0%, Rehash=0, Collisions=0/42=0%
-# Finished Make data base on Wed Jun 15 22:51:58 2022
+# Finished Make data base on Thu Jun 16 09:16:53 2022
 
  

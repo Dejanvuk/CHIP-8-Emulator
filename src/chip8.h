@@ -27,7 +27,7 @@ typedef struct chip8
     uint16_t stack[STACK_SIZE];
 } CHIP8;
 
-void readRom(char*, CHIP8*, FILE**);
+int readRom(char*, CHIP8*);
 
 CHIP8* initializeChip8(void);
 

@@ -2,13 +2,14 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
+
 #include "chip8.h"
 #include "display.h"
+#include "interpreter.h"
 
 
 int main(int argc, char* argv[]) {
 	char* currentRom = "roms/TANK";
-	FILE *romFilePointer = NULL;
 	SDL_bool shouldRun = SDL_TRUE;
 	DISPLAY* pDisplay = NULL;
 
@@ -26,9 +27,7 @@ int main(int argc, char* argv[]) {
 		return(-1);
 	}
 
-	readRom(currentRom, pChip8, &romFilePointer);
-
-	if(romFilePointer == NULL) {
+	if(!readRom(currentRom, pChip8)) {
 		printf( "ERROR: Couldn't read the Rom file! \n");
         return(-1);
 	}
@@ -37,16 +36,17 @@ int main(int argc, char* argv[]) {
 		SDL_Event event;
 
 		// fetch, decode and execute the next instruction
+		//processNextInstruction(pChip8, pDisplay);
+		//SDL_Delay(520/60);
 
 		// Process the user events
-    	while (SDL_PollEvent(&event)) {
+    	if (SDL_PollEvent(&event)) {
         	switch (event.type) {
             	case SDL_QUIT:
                 	shouldRun = SDL_TRUE;
                 	break;
 				default:
-					SDL_Delay(3000);
-					shouldRun = false;
+					//shouldRun = false;
 					break;
         	}
     	}
