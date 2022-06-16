@@ -193,6 +193,7 @@ void processNextInstruction(CHIP8* pChip8, DISPLAY* pDisplay) {
                     break;
                 // FX29 Sets I to the location of the sprite for the character in VX. Characters 0-F (in hexadecimal) are represented by a 4x5 font.
                 case 0x0029:
+                    pChip8->cpu.I = FONT_WIDTH * pChip8->cpu.V[(opcode & 0x0F00) >> 8];
                     break;
                 /* FX33 
                 Stores the binary-coded decimal representation of VX, with the most significant of three digits at the address in I, the middle digit at I plus 1,

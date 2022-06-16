@@ -7,6 +7,7 @@
 #include "display.h"
 #include "interpreter.h"
 #include "keyboard.h"
+#include "fonts.h"
 
 uint8_t getKeyIndex(CHIP8*, SDL_Keycode);
 void processKeyDown(CHIP8*, SDL_KeyboardEvent);
@@ -31,6 +32,8 @@ int main(int argc, char* argv[]) {
 		printf( "ERROR: Couldn't initialize the display! \n");
 		return(-1);
 	}
+
+	loadFontset(pChip8);
 
 	if(!readRom(currentRom, pChip8)) {
 		printf( "ERROR: Couldn't read the Rom file! \n");

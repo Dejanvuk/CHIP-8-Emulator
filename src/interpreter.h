@@ -4,6 +4,7 @@
 #include "chip8.h"
 #include "display.h"
 #include "keyboard.h"
+#include "fonts.h"
 
 /**
  * @brief // fetch, decode and execute the next instruction
