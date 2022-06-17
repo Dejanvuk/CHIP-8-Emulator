@@ -107,7 +107,7 @@ void processNextInstruction(CHIP8* pChip8, DISPLAY* pDisplay) {
                 // 8XY6 Stores the least significant bit of VX in VF and then shifts VX to the right by 1.
                 case 0x0006:
                     pChip8->cpu.V[0xF] = pChip8->cpu.V[(opcode & 0x0F00) >> 8] & 0x1;
-                    pChip8->cpu.V[(opcode & 0x0F00) >> 8] = pChip8->cpu.V[(opcode & 0x0F00) >> 8] >> 1;
+                    pChip8->cpu.V[(opcode & 0x0F00) >> 8] =>> 1;
                     break;
                 // 8XY7 Sets VX to VY minus VX. VF is set to 0 when there's a borrow, and 1 when there is not.
                 case 0x0007:
@@ -121,8 +121,8 @@ void processNextInstruction(CHIP8* pChip8, DISPLAY* pDisplay) {
                     break;
                 // 8XYE Stores the most significant bit of VX in VF and then shifts VX to the left by 1.[b]
                 case 0x000E:
-                    pChip8->cpu.V[0xF] = pChip8->cpu.V[(opcode & 0x0F00) >> 8] & 0x1;
-                    pChip8->cpu.V[(opcode & 0x0F00) >> 8] = pChip8->cpu.V[(opcode & 0x0F00) >> 8] << 1;
+                    pChip8->cpu.V[0xF] = (pChip8->cpu.V[(opcode & 0x0F00) >> 8] >> 7);
+                    pChip8->cpu.V[(opcode & 0x0F00) >> 8] <<= 1;
                     break;
             }
             break;
