@@ -5,7 +5,8 @@
         "display.h": "c",
         "chip8.h": "c",
         "interpreter.h": "c",
-        "windows.h": "c"
+        "windows.h": "c",
+        "stdlib.h": "c"
     },
     "makefile.launchConfigurations": [
         {

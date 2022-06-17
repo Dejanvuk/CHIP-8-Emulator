@@ -1,11 +1,13 @@
 # A simple CHIP-8 Emulator
 
+![](images/image.png)
+
 [CHIP-8 Instructions manual](http://devernay.free.fr/hacks/chip8/C8TECH10.HTM)
 
 ___
 
 ## Installation
-This program has been compiled on windows x64, SDL2.dll has been copied on the project directory or in the system's directory
+This program has been compiled on windows x64 under Mingw-64, SDL library including SDL2.dll have been copied on the project directory, nothing is installed globally
 ## Running the program
 
 ___

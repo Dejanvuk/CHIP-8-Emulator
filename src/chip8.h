@@ -28,6 +28,8 @@ typedef struct chip8
     uint8_t memory[MEMORY_MAP_SIZE]; // RAM
     uint16_t stack[STACK_SIZE];
     uint8_t keys[KEYS_COUNT];
+    uint16_t delayTimer;
+    uint16_t soundTimer;
 } CHIP8;
 
 int readRom(char*, CHIP8*);

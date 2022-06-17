@@ -28,7 +28,7 @@ void initializeDisplay(DISPLAY** ppDisplay) {
 			return;
 		}
 
-		pDisplay->texture = SDL_CreateTexture(pDisplay->renderer, SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_STREAMING, CHIP8_DISPLAY_WIDTH, CHIP8_DISPLAY_HEIGHT);
+		pDisplay->texture = SDL_CreateTexture(pDisplay->renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_STREAMING, CHIP8_DISPLAY_WIDTH, CHIP8_DISPLAY_HEIGHT);
 
 		if(pDisplay->texture == NULL )
 		{
@@ -43,7 +43,7 @@ void initializeDisplay(DISPLAY** ppDisplay) {
 }
 
 void draw(DISPLAY* pDisplay) {
-	SDL_UpdateTexture(pDisplay->texture, NULL, pDisplay->video_buffer, sizeof(pDisplay->video_buffer[0]) * CHIP8_DISPLAY_WIDTH);
+	SDL_UpdateTexture(pDisplay->texture, NULL, pDisplay->video_buffer, sizeof(uint32_t) * CHIP8_DISPLAY_WIDTH);
 	SDL_RenderClear(pDisplay->renderer);
 	SDL_RenderCopy(pDisplay->renderer, pDisplay->texture, NULL, NULL);
 	SDL_RenderPresent(pDisplay->renderer);

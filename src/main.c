@@ -1,7 +1,7 @@
 #include <SDL2/SDL.h>
 #include <stdbool.h>
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 #include "chip8.h"
 #include "display.h"
@@ -15,7 +15,7 @@ void processKeyUp(CHIP8*, SDL_KeyboardEvent);
 
 
 int main(int argc, char* argv[]) {
-	char* currentRom = "roms/chip8-test-rom.ch8";
+	char* currentRom = "roms/INVADERS";
 	SDL_bool shouldRun = SDL_TRUE;
 	DISPLAY* pDisplay = NULL;
 
@@ -46,12 +46,13 @@ int main(int argc, char* argv[]) {
 		// fetch, decode and execute the next instruction
 		processNextInstruction(pChip8, pDisplay);
 		//SDL_Delay((520/60) / 1000);
+		sleep((520/60) / 1000);
 
 		// Process the user events
     	if (SDL_PollEvent(&event)) {
         	switch (event.type) {
             	case SDL_QUIT:
-                	shouldRun = SDL_TRUE;
+                	shouldRun = SDL_FALSE;
                 	break;
 				case SDL_KEYDOWN:
 					break;
@@ -83,7 +84,7 @@ Keypad       Keyboard
 +-+-+-+-+    +-+-+-+-+
 |4|5|6|D|    |Q|W|E|R|
 +-+-+-+-+ => +-+-+-+-+
-|7|8|9|E|    |A|S|D|F|
+|7|8|9|E|    |A|S|D|F| 
 +-+-+-+-+    +-+-+-+-+
 |A|0|B|F|    |Z|X|C|V|
 +-+-+-+-+    +-+-+-+-+

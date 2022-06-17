@@ -1,2 +1,5 @@
 chip8.exe
-./vscode
+.vscode
+
+### ROM files
+roms/
