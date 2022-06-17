@@ -36,7 +36,13 @@ void initializeDisplay(DISPLAY** ppDisplay) {
 			return;
 		}
 
-		SDL_SetTextureColorMod( pDisplay->texture, 255, 0, 0 ); // change the color of all of the sprites to red
+		SDL_SetTextureColorMod( pDisplay->texture, 215, 255, 0 ); // change the color of all of the sprites to red
+		pDisplay->videoBufferRect.x = 0;
+		pDisplay->videoBufferRect.y = 0;
+		/* since we no longer pass NULL to SDL_Rect 4th arg of SDL_RenderCopy which would've caused the texture to stretch to fill the whole render target
+		we have to manually specify the rectangle we want our texture to stretch to */
+		pDisplay->videoBufferRect.w = CHIP8_DISPLAY_WIDTH * CHIP8_DISPLAY_VIDEO_SCALE;
+		pDisplay->videoBufferRect.h = CHIP8_DISPLAY_HEIGHT * CHIP8_DISPLAY_VIDEO_SCALE;
 
 		pDisplay->shouldDraw = SDL_TRUE;
 	}
@@ -53,7 +59,7 @@ void draw(DISPLAY* pDisplay) {
   	SDL_UnlockTexture(pDisplay->texture);
 
 	SDL_RenderClear(pDisplay->renderer);
-	SDL_RenderCopy(pDisplay->renderer, pDisplay->texture, NULL, NULL);
+	SDL_RenderCopy(pDisplay->renderer, pDisplay->texture, NULL, &pDisplay->videoBufferRect);
 	SDL_RenderPresent(pDisplay->renderer);
 
 	pDisplay->shouldDraw = SDL_FALSE;

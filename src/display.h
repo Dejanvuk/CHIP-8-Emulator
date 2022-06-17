@@ -15,12 +15,11 @@
 #define CHIP8_DISPLAY_HEIGHT 32
 
 // We have to scale because CHIP8's graphic display is to small
-#define VIDEO_SCALE 10
-#define VIDEO_SCALE 10
+#define CHIP8_DISPLAY_VIDEO_SCALE 10
 
 // Display size on the graphic device
-#define REAL_DISPLAY_WIDTH CHIP8_DISPLAY_WIDTH * VIDEO_SCALE 
-#define REAL_DISPLAY_HEIGHT CHIP8_DISPLAY_HEIGHT * VIDEO_SCALE 
+#define REAL_DISPLAY_WIDTH CHIP8_DISPLAY_WIDTH * CHIP8_DISPLAY_VIDEO_SCALE * 2
+#define REAL_DISPLAY_HEIGHT CHIP8_DISPLAY_HEIGHT * CHIP8_DISPLAY_VIDEO_SCALE * 2
 
 #define SPRITE_WIDTH 8
 
@@ -33,6 +32,7 @@ typedef struct display
     SDL_Renderer* renderer;
     SDL_Texture* texture;
     uint32_t video_buffer[CHIP8_DISPLAY_WIDTH * CHIP8_DISPLAY_HEIGHT]; // holds ARGB values of the pixels
+    SDL_Rect videoBufferRect;
     SDL_bool shouldDraw;
 } DISPLAY;
 
