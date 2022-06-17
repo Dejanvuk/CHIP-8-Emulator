@@ -2,6 +2,7 @@
 
 void initializeDisplay(DISPLAY** ppDisplay) {
 	DISPLAY* pDisplay = (DISPLAY*) malloc(sizeof(DISPLAY));
+	memset(pDisplay, 0, sizeof(DISPLAY));
     //Initialize SDL
 	if( SDL_Init( SDL_INIT_VIDEO ) < 0 )
 	{
@@ -35,15 +36,19 @@ void initializeDisplay(DISPLAY** ppDisplay) {
 			return;
 		}
 
-		pDisplay->shouldDraw = SDL_FALSE;
+		pDisplay->shouldDraw = SDL_TRUE;
 	}
 
 	*ppDisplay = pDisplay; 
 }
 
-void clearDisplay(DISPLAY* pDisplay) {
-	memset(pDisplay->video_buffer, 0, sizeof(uint32_t) * CHIP8_DISPLAY_WIDTH * CHIP8_DISPLAY_HEIGHT);
-	pDisplay->shouldDraw = SDL_TRUE;
+void draw(DISPLAY* pDisplay) {
+	SDL_UpdateTexture(pDisplay->texture, NULL, pDisplay->video_buffer, sizeof(pDisplay->video_buffer[0]) * CHIP8_DISPLAY_WIDTH);
+	SDL_RenderClear(pDisplay->renderer);
+	SDL_RenderCopy(pDisplay->renderer, pDisplay->texture, NULL, NULL);
+	SDL_RenderPresent(pDisplay->renderer);
+
+	pDisplay->shouldDraw = SDL_FALSE;
 }
 
 void cleanUpDisplay(DISPLAY* display) {

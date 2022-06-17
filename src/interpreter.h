@@ -11,5 +11,7 @@
  * 
  */
 void processNextInstruction(CHIP8*, DISPLAY*);
+void display(CHIP8*, DISPLAY*, uint8_t, uint8_t, uint8_t);
+void clearDisplay(DISPLAY*);
 
 #endif

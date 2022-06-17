@@ -9,7 +9,7 @@ static uint8_t generateRandomNumber() {
 void processNextInstruction(CHIP8* pChip8, DISPLAY* pDisplay) {
     // fetch the next opcode
     uint16_t opcode = (pChip8->memory[pChip8->cpu.PC] << 8) | (pChip8->memory[pChip8->cpu.PC+1]);
-    printf("0x%02x %02x | ", opcode, pChip8->cpu.PC);
+    //printf("0x%02x %02x | ", opcode, pChip8->cpu.PC);
     pChip8->cpu.PC += 2; // easier to do it here then after PC increasing instructions
 
     // decode and process
@@ -92,7 +92,7 @@ void processNextInstruction(CHIP8* pChip8, DISPLAY* pDisplay) {
                     uint8_t y = (opcode & 0x00F0) >> 4;
                     uint16_t sum = (pChip8->cpu.V[x] +  pChip8->cpu.V[y]);
                     pChip8->cpu.V[0xF] = sum > 0xFF ? 1 : 0;
-                    pChip8->cpu.V[x] = (uint8_t) sum; // or sum & 0xFF
+                    pChip8->cpu.V[x] = sum & 0xFF; // or (uint8_t) sum
                     break;
                     }
                 // 8XY5 VY is subtracted from VX. VF is set to 0 when there's a borrow, and 1 when there is not.
@@ -149,8 +149,14 @@ void processNextInstruction(CHIP8* pChip8, DISPLAY* pDisplay) {
         I value does not change after the execution of this instruction. 
         As described above, VF is set to 1 if any screen pixels are flipped from set to unset when the sprite is drawn, and to 0 if that does not happen
         */  
-        case 0xD000:
+        case 0xD000: 
+        {
+            uint8_t height = opcode & 0x000F;
+            uint8_t x = (opcode & 0x0F00) >> 8;
+            uint8_t y = (opcode & 0x00F0) >> 4;
+            display(pChip8, pDisplay, height, x, y);
             break;
+        }
         case 0xE000:
             switch (opcode & 0x00FF) {
                 // EX9E Skips the next instruction if the key stored in VX is pressed. (Usually the next instruction is a jump to skip a code block);
@@ -231,4 +237,37 @@ void processNextInstruction(CHIP8* pChip8, DISPLAY* pDisplay) {
             break;
     }
     
+}
+
+void display(CHIP8* pChip8, DISPLAY* pDisplay, uint8_t height, uint8_t x, uint8_t y) {
+    x %= CHIP8_DISPLAY_WIDTH;
+    y %= CHIP8_DISPLAY_HEIGHT;
+	uint16_t start = x * y;
+
+    pChip8->cpu.V[0xF] = 0;
+
+	for(int r = 0; r < height; r++) {
+		uint8_t spriteRow = pChip8->memory[pChip8->cpu.I + r]; //the 8 columns as bit to draw
+
+        for(int c = 0; c < 8; c++) {
+            uint8_t spritePixel = spriteRow & (0x80 >> c);
+            uint32_t* displayPixel = &(pDisplay->video_buffer[start * sizeof(uint32_t) + c]);
+
+            if(spritePixel == 0x1 && (*displayPixel == 0xFFFFFFFF)) {
+                // collision detected
+                pChip8->cpu.V[0xF] = 1;
+            }
+            *displayPixel ^= 0xFFFFFFFF;
+            
+        }
+	}
+
+	pDisplay->shouldDraw = SDL_TRUE;
+}
+
+void clearDisplay(DISPLAY* pDisplay) {
+	memset(pDisplay->video_buffer, 0, sizeof(uint32_t) * CHIP8_DISPLAY_WIDTH * CHIP8_DISPLAY_HEIGHT);
+
+	// also redraw the background
+	pDisplay->shouldDraw = SDL_TRUE;
 }

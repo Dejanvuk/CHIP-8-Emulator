@@ -22,7 +22,10 @@
 #define REAL_DISPLAY_WIDTH CHIP8_DISPLAY_WIDTH * VIDEO_SCALE_WIDTH
 #define REAL_DISPLAY_HEIGHT CHIP8_DISPLAY_HEIGHT * VIDEO_SCALE_HEIGHT
 
+#define SPRITE_WIDTH 8
+
 #define CLEAR_COLOR 0x00000000
+#define SPRITE_COLOR 0xFFFFFFFF
 
 typedef struct display
 {
@@ -35,7 +38,6 @@ typedef struct display
 
 void initializeDisplay(DISPLAY**);
 void cleanUpDisplay(DISPLAY*);
-void draw(SDL_Renderer*, SDL_Texture*);
-void clearDisplay(DISPLAY*);
+void draw(DISPLAY*);
 
 #endif

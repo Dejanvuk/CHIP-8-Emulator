@@ -15,7 +15,7 @@ void processKeyUp(CHIP8*, SDL_KeyboardEvent);
 
 
 int main(int argc, char* argv[]) {
-	char* currentRom = "roms/TANK";
+	char* currentRom = "roms/chip8-test-rom.ch8";
 	SDL_bool shouldRun = SDL_TRUE;
 	DISPLAY* pDisplay = NULL;
 
@@ -45,7 +45,7 @@ int main(int argc, char* argv[]) {
 
 		// fetch, decode and execute the next instruction
 		processNextInstruction(pChip8, pDisplay);
-		//SDL_Delay(520/60);
+		//SDL_Delay((520/60) / 1000);
 
 		// Process the user events
     	if (SDL_PollEvent(&event)) {
@@ -63,8 +63,9 @@ int main(int argc, char* argv[]) {
         	}
     	}
 
-		// Draw
-		//if (shouldDraw) {draw()}
+		if (pDisplay->shouldDraw == SDL_TRUE) {
+			draw(pDisplay);
+		}
 
     }
 
