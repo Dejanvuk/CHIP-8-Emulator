@@ -36,6 +36,8 @@ void initializeDisplay(DISPLAY** ppDisplay) {
 			return;
 		}
 
+		SDL_SetTextureColorMod( pDisplay->texture, 255, 0, 0 ); // change the color of all of the sprites to red
+
 		pDisplay->shouldDraw = SDL_TRUE;
 	}
 
@@ -43,7 +45,13 @@ void initializeDisplay(DISPLAY** ppDisplay) {
 }
 
 void draw(DISPLAY* pDisplay) {
-	SDL_UpdateTexture(pDisplay->texture, NULL, pDisplay->video_buffer, sizeof(uint32_t) * CHIP8_DISPLAY_WIDTH);
+	int pitch; // number of bytes per row, Pitch = 256,  4 bytes (RGBA) * 64 (WIDTH)
+	void* pixeldata = NULL;
+	//SDL_UpdateTexture(pDisplay->texture, NULL, pDisplay->video_buffer, sizeof(uint32_t) * CHIP8_DISPLAY_WIDTH);
+	SDL_LockTexture(pDisplay->texture, NULL, &pixeldata, &pitch);
+  	memcpy(pixeldata, pDisplay->video_buffer, pitch * CHIP8_DISPLAY_HEIGHT); // 256 bytes (Pitch) * 32 bytes (HEIGHT)
+  	SDL_UnlockTexture(pDisplay->texture);
+
 	SDL_RenderClear(pDisplay->renderer);
 	SDL_RenderCopy(pDisplay->renderer, pDisplay->texture, NULL, NULL);
 	SDL_RenderPresent(pDisplay->renderer);

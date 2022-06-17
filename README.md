@@ -7,7 +7,7 @@
 ___
 
 ## Installation
-This program has been compiled on windows x64 under Mingw-64, SDL library including SDL2.dll have been copied on the project directory, nothing is installed globally
+Compiled on windows x64 under Mingw-64, SDL library including SDL2.dll have been copied on the project directory, nothing is installed globally
 ## Running the program
 
 ___

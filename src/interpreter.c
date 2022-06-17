@@ -9,7 +9,7 @@ static uint8_t generateRandomNumber() {
 void processNextInstruction(CHIP8* pChip8, DISPLAY* pDisplay) {
     // fetch the next opcode
     uint16_t opcode = (pChip8->memory[pChip8->cpu.PC] << 8) | (pChip8->memory[pChip8->cpu.PC+1]);
-    printf("0x%02x %02x | ", opcode, pChip8->cpu.PC);
+    //printf("0x%02x %02x | ", opcode, pChip8->cpu.PC);
     pChip8->cpu.PC += 2; // easier to do it here then after PC increasing instructions
 
     // decode and process
