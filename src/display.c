@@ -62,7 +62,7 @@ void initializeTTF(DISPLAY* pDisplay) {
 	// width and height are set automatically down below when drawing
 	SDL_Rect* pDebugTextRect = (SDL_Rect*) malloc(sizeof(SDL_Rect));
 	pDebugTextRect->x = pDisplay->videoBufferRect.w + 20;
-	pDebugTextRect->y = 60;
+	pDebugTextRect->y = 20;
 
 	if(TTF_Init() < 0) {
 		SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Couldn't initialize SDL TTF: %s", SDL_GetError());
@@ -83,7 +83,7 @@ void initializeTTF(DISPLAY* pDisplay) {
 
 }
 
-void draw(DISPLAY* pDisplay) {
+void draw(DISPLAY* pDisplay, CHIP8* pChip8) {
 	int pitch; // number of bytes per row, Pitch = 256,  4 bytes (RGBA) * 64 (WIDTH)
 	void* pixeldata = NULL;
 	/* 
@@ -99,14 +99,16 @@ void draw(DISPLAY* pDisplay) {
 	*/
 
 	int w, h;
-	char* debugText;
-	sprintf(debugText, "R[0]: %d R[1]: %d  R[2]: %d R[3]: %d R[4]: %d R[5]: %d R[6]: %d  R[7]: %d R[8]: %d R[9]: %d R[A]: %d R[B]: %d  R[C]: %d R[D]: %d R[E]: %d R[F]: %d ", 
-	123, 123, 123, 321, 321, 123, 123, 321, 321, 321, 123, 123, 123, 132, 123, 321);
+	char debugText[10 * 16];
+	sprintf(debugText, "R[0]: %03d R[1]: %03d  R[2]: %03d R[3]: %03d R[4]: %03d R[5]: %03d R[6]: %03d R[7]: %03d R[8]: %03d R[9]: %03d R[A]: %03d R[B]: %03d  R[C]: %03d R[D]: %03d R[E]: %03d R[F]: %03d ",
+	pChip8->cpu.V[0], pChip8->cpu.V[1], pChip8->cpu.V[2], pChip8->cpu.V[3], pChip8->cpu.V[4], pChip8->cpu.V[5], pChip8->cpu.V[6], pChip8->cpu.V[7], pChip8->cpu.V[8], pChip8->cpu.V[9],
+	pChip8->cpu.V[0xA], pChip8->cpu.V[0xB], pChip8->cpu.V[0xC], pChip8->cpu.V[0xD], pChip8->cpu.V[0xE], pChip8->cpu.V[0xF]);
+	
 	TTF_SizeText(pDisplay->font, debugText, &w, &h);
-	printf("w: %d h: %d " , w, h);
-	pDisplay->pDebugTextRect->w = w / 15;
-	pDisplay->pDebugTextRect->h = h * 15;
-	SDL_Surface *debugTextSurface = TTF_RenderText_Blended_Wrapped(pDisplay->font, debugText, *pDisplay->pDebugTextColor, w / 15);
+	//printf("w: %d h: %d " , w, h);
+	pDisplay->pDebugTextRect->w = w / 16;
+	pDisplay->pDebugTextRect->h = h * 16;
+    SDL_Surface *debugTextSurface = TTF_RenderText_Blended_Wrapped(pDisplay->font, debugText, *pDisplay->pDebugTextColor, w / 16);
 	SDL_Texture *debugTextTexture = SDL_CreateTextureFromSurface(pDisplay->renderer, debugTextSurface);
 
 	/* 

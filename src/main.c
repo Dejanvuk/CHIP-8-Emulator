@@ -67,7 +67,7 @@ int main(int argc, char* argv[]) {
     	}
 
 		if (pDisplay->shouldDraw == SDL_TRUE) {
-			draw(pDisplay);
+			draw(pDisplay, pChip8);
 		}
 
     }

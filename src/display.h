@@ -49,6 +49,6 @@ typedef struct display
 void initializeDisplay(DISPLAY**);
 void initializeTTF(DISPLAY*); 
 void cleanUpDisplay(DISPLAY*);
-void draw(DISPLAY*);
+void draw(DISPLAY*, CHIP8*);
 
 #endif
