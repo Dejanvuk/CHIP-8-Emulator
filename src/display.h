@@ -35,6 +35,7 @@ typedef struct display
     uint32_t video_buffer[CHIP8_DISPLAY_WIDTH * CHIP8_DISPLAY_HEIGHT]; // holds ARGB values of the pixels
     SDL_Rect videoBufferRect;
     // For drawing text
+    char* debugText;
     TTF_Font* font;
     SDL_Rect* pDebugTextRect;
     SDL_Color* pDebugTextColor;
