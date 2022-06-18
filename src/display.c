@@ -99,16 +99,16 @@ void draw(DISPLAY* pDisplay, CHIP8* pChip8) {
 	*/
 
 	int w, h;
-	char debugText[10 * 16];
-	sprintf(debugText, "R[0]: %03d R[1]: %03d  R[2]: %03d R[3]: %03d R[4]: %03d R[5]: %03d R[6]: %03d R[7]: %03d R[8]: %03d R[9]: %03d R[A]: %03d R[B]: %03d  R[C]: %03d R[D]: %03d R[E]: %03d R[F]: %03d ",
+	char debugRegistersText[10 * 16];
+	sprintf(debugRegistersText, "R[0]: %03d R[1]: %03d  R[2]: %03d R[3]: %03d R[4]: %03d R[5]: %03d R[6]: %03d R[7]: %03d R[8]: %03d R[9]: %03d R[A]: %03d R[B]: %03d  R[C]: %03d R[D]: %03d R[E]: %03d R[F]: %03d ",
 	pChip8->cpu.V[0], pChip8->cpu.V[1], pChip8->cpu.V[2], pChip8->cpu.V[3], pChip8->cpu.V[4], pChip8->cpu.V[5], pChip8->cpu.V[6], pChip8->cpu.V[7], pChip8->cpu.V[8], pChip8->cpu.V[9],
 	pChip8->cpu.V[0xA], pChip8->cpu.V[0xB], pChip8->cpu.V[0xC], pChip8->cpu.V[0xD], pChip8->cpu.V[0xE], pChip8->cpu.V[0xF]);
 	
-	TTF_SizeText(pDisplay->font, debugText, &w, &h);
+	TTF_SizeText(pDisplay->font, debugRegistersText, &w, &h);
 	//printf("w: %d h: %d " , w, h);
 	pDisplay->pDebugTextRect->w = w / 16;
 	pDisplay->pDebugTextRect->h = h * 16;
-    SDL_Surface *debugTextSurface = TTF_RenderText_Blended_Wrapped(pDisplay->font, debugText, *pDisplay->pDebugTextColor, w / 16);
+    SDL_Surface *debugTextSurface = TTF_RenderText_Blended_Wrapped(pDisplay->font, debugRegistersText, *pDisplay->pDebugTextColor, w / 16);
 	SDL_Texture *debugTextTexture = SDL_CreateTextureFromSurface(pDisplay->renderer, debugTextSurface);
 
 	/* 
