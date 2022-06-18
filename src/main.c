@@ -28,6 +28,7 @@ int main(int argc, char* argv[]) {
 	}
 
 	initializeDisplay(&pDisplay);
+	initializeTTF(pDisplay);
 
 	if(pDisplay == NULL) {
 		printf( "ERROR: Couldn't initialize the display! \n");

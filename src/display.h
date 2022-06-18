@@ -34,11 +34,17 @@ typedef struct display
     SDL_Texture* texture;
     uint32_t video_buffer[CHIP8_DISPLAY_WIDTH * CHIP8_DISPLAY_HEIGHT]; // holds ARGB values of the pixels
     SDL_Rect videoBufferRect;
-
+    // For drawing text
+    TTF_Font* font;
+    SDL_Rect* pDebugTextRect;
+    SDL_Color* pDebugTextColor;
+    SDL_Texture* debugTextTexture;
+    // true if the frame needs to be rendered
     SDL_bool shouldDraw;
 } DISPLAY;
 
 void initializeDisplay(DISPLAY**);
+void initializeTTF(DISPLAY*); 
 void cleanUpDisplay(DISPLAY*);
 void draw(DISPLAY*);
 

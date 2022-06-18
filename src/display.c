@@ -50,24 +50,72 @@ void initializeDisplay(DISPLAY** ppDisplay) {
 	*ppDisplay = pDisplay; 
 }
 
+void initializeTTF(DISPLAY* pDisplay) {
+	char *font_path = "fonts/FreeSans.ttf";
+
+	SDL_Color* pDebugTextColor = (SDL_Color*) malloc(sizeof(SDL_Color));
+	pDebugTextColor->r = 255;
+	pDebugTextColor->g = 0;
+	pDebugTextColor->b = 0;
+	pDebugTextColor->a = 0;
+
+	// TO-DO: Modify for relative values on w and h
+	SDL_Rect* pDebugTextRect = (SDL_Rect*) malloc(sizeof(SDL_Rect));
+	pDebugTextRect->x = pDisplay->videoBufferRect.w + 20;
+	pDebugTextRect->y = 20;
+	pDebugTextRect->w = 200;
+	pDebugTextRect->h = 200;
+
+
+	
+	if(TTF_Init() < 0) {
+		SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Couldn't initialize SDL TTF: %s", SDL_GetError());
+		return;
+	}
+
+	TTF_Font *font = TTF_OpenFont(font_path, 24);
+    if (font == NULL) {
+        fprintf(stderr, "error: font not found\n");
+        exit(EXIT_FAILURE);
+    }
+
+	pDisplay->font = font;
+
+	pDisplay->pDebugTextRect = pDebugTextRect;
+	pDisplay->pDebugTextColor = pDebugTextColor;
+
+
+}
+
 void draw(DISPLAY* pDisplay) {
 	int pitch; // number of bytes per row, Pitch = 256,  4 bytes (RGBA) * 64 (WIDTH)
 	void* pixeldata = NULL;
-	// 1st: Update the Chip8 display
+	/* 
+	1st: Update the Chip8 display 
+	*/
 	//SDL_UpdateTexture(pDisplay->texture, NULL, pDisplay->video_buffer, sizeof(uint32_t) * CHIP8_DISPLAY_WIDTH);
 	SDL_LockTexture(pDisplay->texture, NULL, &pixeldata, &pitch);
   	memcpy(pixeldata, pDisplay->video_buffer, pitch * CHIP8_DISPLAY_HEIGHT); // 256 bytes (Pitch) * 32 bytes (HEIGHT)
   	SDL_UnlockTexture(pDisplay->texture);
 
-	// 2nd:Update the Debug counters
-	//SDL_Surface *surface = TTF_RenderText_Solid(font, text, *color);
+	/*  
+	2nd:Update the Debug counters 
+	*/
+	SDL_Surface *debugTextSurface = TTF_RenderText_Solid(pDisplay->font, "blabla", *pDisplay->pDebugTextColor);
+	SDL_Texture *debugTextTexture = SDL_CreateTextureFromSurface(pDisplay->renderer, debugTextSurface);
 
-	// 3rd: Update the screen
+	/* 
+	3rd: Update the screen 
+	*/
 	SDL_RenderClear(pDisplay->renderer);
-	SDL_RenderCopy(pDisplay->renderer, pDisplay->texture, NULL, &pDisplay->videoBufferRect);
-	SDL_RenderPresent(pDisplay->renderer);
+	SDL_RenderCopy(pDisplay->renderer, pDisplay->texture, NULL, &pDisplay->videoBufferRect); // render the chip8 display
+	SDL_RenderCopy(pDisplay->renderer, debugTextTexture, NULL, pDisplay->pDebugTextRect); // render the debug text if debugging is enabled
+	SDL_RenderPresent(pDisplay->renderer); // swap the buffers
 
 	pDisplay->shouldDraw = SDL_FALSE;
+
+	SDL_FreeSurface(debugTextSurface);
+	SDL_DestroyTexture(debugTextTexture);
 }
 
 void cleanUpDisplay(DISPLAY* display) {
