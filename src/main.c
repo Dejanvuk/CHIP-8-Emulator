@@ -1,4 +1,5 @@
-#include <SDL2/SDL.h>
+#include <SDL.h>
+#include <windows.h>
 #include <stdbool.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -46,7 +47,7 @@ int main(int argc, char* argv[]) {
 		// fetch, decode and execute the next instruction
 		processNextInstruction(pChip8, pDisplay);
 		//SDL_Delay((520/60) / 1000);
-		sleep((520/60) / 1000);
+		Sleep(520/60);
 
 		// Process the user events
     	if (SDL_PollEvent(&event)) {

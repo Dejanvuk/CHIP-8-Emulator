@@ -1,7 +1,8 @@
 #ifndef DISPLAY_H
 #define DISPLAY_H
 
-#include <SDL2/SDL.h>
+#include <SDL.h>
+#include <SDL_TTF/SDL_ttf.h>
 #include <stdio.h>
 
 /* 
@@ -33,6 +34,7 @@ typedef struct display
     SDL_Texture* texture;
     uint32_t video_buffer[CHIP8_DISPLAY_WIDTH * CHIP8_DISPLAY_HEIGHT]; // holds ARGB values of the pixels
     SDL_Rect videoBufferRect;
+
     SDL_bool shouldDraw;
 } DISPLAY;
 

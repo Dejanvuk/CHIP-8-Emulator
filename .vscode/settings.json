@@ -6,7 +6,8 @@
         "chip8.h": "c",
         "interpreter.h": "c",
         "windows.h": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "sdl_ttf.h": "c"
     },
     "makefile.launchConfigurations": [
         {

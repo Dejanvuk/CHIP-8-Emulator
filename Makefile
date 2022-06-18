@@ -10,13 +10,13 @@ C_STANDARD = c11
 COMPILER_FLAGS = -Wall 
 
 #LINKER_FLAGS specifies the libraries we're linking against
-LINKER_FLAGS = -lmingw32 -lSDL2main -lSDL2
+LINKER_FLAGS = -lmingw32 -lSDL2main -lSDL2 -lSDL2_ttf
 
 #INCLUDE_PATHS specifies the additional include paths we'll need
-INCLUDE_PATHS = -Iinclude
+INCLUDE_PATHS = -Iinclude/SDL2 -Iinclude
 
 #LIB_PATHS specifies the additional library paths we'll need
-LIB_PATHS = -Llib/SDL2
+LIB_PATHS = -Llib/SDL2 -Llib/SDL_TTF
 
 #EXE_NAME specifies the name of our exectuable
 EXE_NAME = chip8.exe
