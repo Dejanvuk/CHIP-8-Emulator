@@ -1,6 +1,5 @@
 make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # GNU Make 4.3
- 
 # Built for x86_64-pc-msys
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
@@ -8,10 +7,9 @@ make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --quest
 # There is NO WARRANTY, to the extent permitted by law.
  
 
-# Make data base, printed on Sat Jun 18 10:57:05 2022
+# Make data base, printed on Sat Jun 18 12:55:45 2022
 
 # Variables
- 
 
 # environment
 FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
@@ -26,7 +24,7 @@ USERPROFILE = C:\Users\a-dvukovic
 # environment
 LOCALAPPDATA = C:\Users\a-dvukovic\AppData\Local
 # environment
-VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-0ee0ef33-1697-46fc-9f6e-6ea93a3eeea4-sock
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-9cec401b-e078-4a4d-911f-97c6c82d64f3-sock
 # environment
 VSCODE_CWD = C:\Users\a-dvukovic\AppData\Local\Programs\Microsoft VS Code
 # environment
@@ -44,7 +42,7 @@ USERDNSDOMAIN = europe.corp.microsoft.com
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_16360_JYNVPPFAOVFAXQSM
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_7552_SZIEBBKFJRLPSGJF
 # environment
 FPS_BROWSER_USER_PROFILE_STRING = Default
 # environment
@@ -102,7 +100,7 @@ MAKEFILE_LIST := Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 16360
+VSCODE_PID = 7552
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # automatic
@@ -135,11 +133,9 @@ MAKELEVEL := 0
 MAKE = $(MAKE_COMMAND)
 # environment
 PATH = /c/Program Files (x86)/VMware/VMware Player/bin:/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/c/Program Files/Python39/Scripts:/c/Program Files/Python39:/c/Program Files/Zulu/zulu-11/bin:/c/Program Files/Zulu/zulu-11-jre/bin:/c/Program Files (x86)/Microsoft SDKs/Azure/CLI2/wbin:/c/windows/system32:/c/windows:/c/windows/System32/Wbem:/c/windows/System32/WindowsPowerShell/v1.0:/c/windows/System32/OpenSSH:/c/Program Files/Git/cmd:/c/kube:/c/Program Files/Kubernetes/Minikube:/c/minikube:/c/WINDOWS/system32:/c/WINDOWS:/c/WINDOWS/System32/Wbem:/c/WINDOWS/System32/WindowsPowerShell/v1.0:/c/WINDOWS/System32/OpenSSH:/c/Maven/bin:/c/Program Files/dotnet:/c/Program Files/Microsoft SQL Server/130/Tools/Binn:/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn:/c/Program Files/PuTTY:/c/Program Files/Docker/Docker/resources/bin:/c/ProgramData/DockerDesktop/version-bin:/c/Program Files/nodejs:/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit:/c/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit:/c/Program Files/Microsoft SQL Server/150/Tools/Binn:/c/Gradle/gradle-7.4.2/bin:/c/Program Files/Microsoft/Azure Functions Core Tools:/c/ProgramData/chocolatey/bin:/mingw64/bin:/usr/bin:/c/Program Files (x86)/dotnet:/c/Users/a-dvukovic/AppData/Local/Programs/Python/Python310/Scripts:/c/Users/a-dvukovic/AppData/Local/Programs/Python/Python310:/c/Users/a-dvukovic/AppData/Local/Microsoft/WindowsApps:/c/Users/a-dvukovic/AppData/Local/Programs/Microsoft VS Code/bin:/c/Program Files/JetBrains/IntelliJ IDEA 2021.2.3/bin:/c/Users/a-dvukovic/.dotnet/tools:/c/Users/a-dvukovic/AppData/Roaming/npm
- 
 # environment
 ZES_ENABLE_SYSMAN = 1
 # environment
- 
 COMPUTERNAME = DESKTOP-5LBUQAI
 # default
 MAKEFILES := 
@@ -166,6 +162,7 @@ PROGRAMW6432 = C:\Program Files
 # makefile (from 'Makefile', line 19)
 LIB_PATHS = -Llib/SDL2 -Llib/SDL_TTF
 # environment
+ 
 PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW
 # automatic
 +F = $(notdir $+)
@@ -230,7 +227,6 @@ SUFFIXES :=
 # environment
 ALLUSERSPROFILE = C:\ProgramData
 # environment
- 
 SESSIONNAME = Console
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
@@ -245,7 +241,6 @@ INCLUDE_PATHS = -Iinclude/SDL2 -Iinclude
 # environment
 PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 142 Stepping 12, GenuineIntel
 # variable set hash-table stats:
- 
 # Load=114/1024=11%, Rehash=0, Collisions=12/153=8%
 
 # Pattern-specific Variable Values
@@ -254,10 +249,10 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 142 Stepping 12, GenuineIntel
 
 # Directories
 
-# src (device 3657868720, inode 68961369294130232): 12 files, no impossibilities.
-# . (device 3657868720, inode 18014398509774970): 20 files, no impossibilities.
+# src (device 3657868720, inode 68961369294130232): 13 files, no impossibilities.
+# . (device 3657868720, inode 18014398509774970): 21 files, no impossibilities.
 
-# 32 files, no impossibilities in 2 directories.
+# 34 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
@@ -296,14 +291,14 @@ src/chip8.c:
 # Not a target:
 src/main.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-18 10:46:19.1474235
+#  Last modified 2022-06-18 11:28:08.1818421
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 src/display.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-18 10:53:25.3022277
+#  Last modified 2022-06-18 12:45:26.225988
 #  File has been updated.
 #  Successfully updated.
 
@@ -311,7 +306,6 @@ src/display.c:
 .DEFAULT:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
- 
 #  File has not been updated.
 
 all: src/chip8.c src/display.c src/fonts.c src/interpreter.c src/main.c
@@ -338,7 +332,6 @@ all: src/chip8.c src/display.c src/fonts.c src/interpreter.c src/main.c
 # automatic
 # | := 
 # variable set hash-table stats:
- 
 # Load=8/32=25%, Rehash=0, Collisions=11/19=58%
 #  recipe to execute (from 'Makefile', line 29):
 	$(CC) -std=$(C_STANDARD) $(OBJS) $(INCLUDE_PATHS) $(LIB_PATHS) $(COMPILER_FLAGS) ${LINKER_FLAGS} -o ${EXE_NAME}
@@ -357,12 +350,12 @@ all: src/chip8.c src/display.c src/fonts.c src/interpreter.c src/main.c
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 39 / storage = 386 B / avg = 9 B
-# current buf: size = 8162 B / used = 386 B / count = 39 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 41 / storage = 399 B / avg = 9 B
+# current buf: size = 8162 B / used = 399 B / count = 41 / avg = 9 B
 
-# strcache performance: lookups = 49 / hit rate = 20%
+# strcache performance: lookups = 51 / hit rate = 19%
 # hash-table stats:
-# Load=39/8192=0%, Rehash=0, Collisions=0/49=0%
-# Finished Make data base on Sat Jun 18 10:57:05 2022
+# Load=41/8192=1%, Rehash=0, Collisions=0/51=0%
+# Finished Make data base on Sat Jun 18 12:55:45 2022
 
  

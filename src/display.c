@@ -59,16 +59,17 @@ void initializeTTF(DISPLAY* pDisplay) {
 	pDebugTextColor->b = 0;
 	pDebugTextColor->a = 0;
 
+	// width and height are set automatically down below when drawing
 	SDL_Rect* pDebugTextRect = (SDL_Rect*) malloc(sizeof(SDL_Rect));
 	pDebugTextRect->x = pDisplay->videoBufferRect.w + 20;
-	pDebugTextRect->y = 20;
+	pDebugTextRect->y = 60;
 
 	if(TTF_Init() < 0) {
 		SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Couldn't initialize SDL TTF: %s", SDL_GetError());
 		return;
 	}
 
-	TTF_Font *font = TTF_OpenFont(font_path, 12);
+	TTF_Font *font = TTF_OpenFont(font_path, 24);
     if (font == NULL) {
         fprintf(stderr, "error: font not found\n");
         exit(EXIT_FAILURE);
@@ -98,12 +99,14 @@ void draw(DISPLAY* pDisplay) {
 	*/
 
 	int w, h;
-	char* debugText = "R[0]: 123 R[1]: 12  R[2]: 250 R[3]: 1   R[4]: 111";
+	char* debugText;
+	sprintf(debugText, "R[0]: %d R[1]: %d  R[2]: %d R[3]: %d R[4]: %d R[5]: %d R[6]: %d  R[7]: %d R[8]: %d R[9]: %d R[A]: %d R[B]: %d  R[C]: %d R[D]: %d R[E]: %d R[F]: %d ", 
+	123, 123, 123, 321, 321, 123, 123, 321, 321, 321, 123, 123, 123, 132, 123, 321);
 	TTF_SizeText(pDisplay->font, debugText, &w, &h);
 	printf("w: %d h: %d " , w, h);
-	pDisplay->pDebugTextRect->w = w / 4;
-	pDisplay->pDebugTextRect->h = h * 8;
-	SDL_Surface *debugTextSurface = TTF_RenderText_Blended_Wrapped(pDisplay->font, debugText, *pDisplay->pDebugTextColor, w / 4);
+	pDisplay->pDebugTextRect->w = w / 15;
+	pDisplay->pDebugTextRect->h = h * 15;
+	SDL_Surface *debugTextSurface = TTF_RenderText_Blended_Wrapped(pDisplay->font, debugText, *pDisplay->pDebugTextColor, w / 15);
 	SDL_Texture *debugTextTexture = SDL_CreateTextureFromSurface(pDisplay->renderer, debugTextSurface);
 
 	/* 

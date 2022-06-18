@@ -5,6 +5,8 @@
 #include <SDL_TTF/SDL_ttf.h>
 #include <stdio.h>
 
+#include "core.h"
+
 /* 
 64x32-pixel monochrome display 
 |(0, 0).........(63, 0)|

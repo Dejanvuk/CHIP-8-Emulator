@@ -3,8 +3,6 @@
 
 #include <SDL.h>
 
-#include "chip8.h"
-
 #define KEYS_COUNT 16
 
 const static uint8_t KEYMAP[KEYS_COUNT] = {
